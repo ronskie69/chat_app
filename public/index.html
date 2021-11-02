@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaCHAT</title>
+    <link rel="stylesheet" href = "/css/styles.css">
+</head>
+<body>
+    <div class="form-continer">
+        <h2>KaCHAT</h2>
+        <p class="intro">100% Safe | Pure Chats | No data saved </p>
+        <form id ="form" autocomplete="off" class ="form" action="/pages/room.html">
+            <input type="hidden" name="secret_id" id ="secret_id" placeholder="Enter name"/>
+            <label>Enter your name</label>
+            <input type="text" name="name" id ="name" placeholder="Enter name" required/>
+            <label>Enter Room ID</label>
+            <input type="number" name ="room_id" id ="room_id" placeholder="Enter room ID" required>
+            <center>
+                <p> ----- OR -----</p>
+            </center>
+            <button id="generate">Create Random Room ID</button>
+            <input type ="submit" value="Join" />
+        </form>
+    </div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
+</html>

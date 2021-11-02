@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room | KaCHAT</title>
+    <link rel="stylesheet" href = "../css/room.css" />
+</head>
+<body>
+    <div class="room-container">
+        <div class="header-box">
+            <h3>KaCHAT</h3>
+            <div class ="room-info">
+                <p>Room ID: <span id ="room_id"></span> |</p>
+                <p>Active users: <span id="active-users"></span></p>
+                <input type="color" value ="#EDAC1A" id ="color-picker"/>
+                <button class="btn-leave" id ="leave">Leave Chat</button>
+            </div>
+        </div>
+        <div class="chat-container"></div>
+        <form id="send-message" class="actions" autocomplete="off">
+            <input type ="text" id="input-msg" autofocus class="input-msg" placeholder="Enter your message"/>
+            <input type ="submit" id="send-msg" value="Send" class="send-msg" />
+        </form>
+    </div>
+    <p class="update-browser">Please update your browser or use PC for better experience.</p>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/room.js"></script>
+</html>
