@@ -11,7 +11,7 @@ let newUser = Object.fromEntries(new URLSearchParams(location.search))
 displayROOMInfo(newUser.room_id);
 initColors();
 
-alert("Welcome to KaCHAT! Enjoy chatting with your friends, mistress, family and your BF/GFs! :D Good luck!")
+alert("Welcome to KaCHAT! Enjoy chismisan, harutan and landian with your friends, kabet, jowa, family :D XD Good luck!");
 
 function displayROOMInfo(roomID){
     currentRoom.innerHTML = roomID;
@@ -45,7 +45,7 @@ document.querySelector('#send-message').addEventListener('submit', e => {
     if(input_msg.value === ""){
         return;
     }
-    if(input_msg.value.length > 38){
+    if(input_msg.value.length > 34){
         alert("Your message must not exceed to 38 characters!");
         return;
     }
