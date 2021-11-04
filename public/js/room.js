@@ -11,8 +11,11 @@ let newUser = Object.fromEntries(new URLSearchParams(location.search))
 displayROOMInfo(newUser.room_id);
 initColors();
 
+alert("Welcome to KaCHAT! Enjoy chatting with your friends, mistress, family and your BF/GFs! :D Good luck!")
+
 function displayROOMInfo(roomID){
     currentRoom.innerHTML = roomID;
+    document.title = `Room ${roomID} | KaCHAT`;
 }
 
 socket.emit('join', newUser );
@@ -42,8 +45,8 @@ document.querySelector('#send-message').addEventListener('submit', e => {
     if(input_msg.value === ""){
         return;
     }
-    if(input_msg.value.length > 24){
-        alert("Your message must not exceeds to 24 digits!");
+    if(input_msg.value.length > 38){
+        alert("Your message must not exceed to 38 characters!");
         return;
     }
     socket.emit('chat', 
@@ -68,7 +71,7 @@ socket.on('chat', chat => {
         newChat.className = "current-user";
     } else {
         h5.innerHTML = cap(chat.from);
-        newChat.className ="other-user"
+        newChat.className ="other-user";
     }
     p.innerHTML = chat.message;
     newChat.id = "current-user";
