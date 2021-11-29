@@ -8,10 +8,22 @@ from.addEventListener('submit', (e) => {
     let value = room_id.value;
     let username = name.value;
     if(value.length > 4){
-        alert("Room ID must not exceed to 4 digits!");
+        Swal.fire({
+            title: 'Room ID too long!',
+            icon: 'error'
+        })
         e.preventDefault()
-    } else if (username.length > 12){
-        alert("Your name must not exceed to 12 characters!");
+    } else if(value < 0){
+        Swal.fire({
+            title: 'Room ID is invalid!',
+            icon: 'error'
+        })
+        e.preventDefault()
+    }else if (username.length > 12){
+        Swal.fire({
+            title: 'Nickname too long!',
+            icon: 'error'
+        })
         name.value = "";
         e.preventDefault()
     } else {

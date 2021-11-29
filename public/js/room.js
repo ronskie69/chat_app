@@ -11,7 +11,8 @@ let newUser = Object.fromEntries(new URLSearchParams(location.search))
 displayROOMInfo(newUser.room_id);
 initColors();
 
-alert("Welcome to KaCHAT! Enjoy chismisan, harutan and landian with your friends, kabet, jowa, family :D XD Good luck!");
+alert('Welcome to KaCHAT! Enjoy chatting with jowa, friends and family. Good luck have fun! XD')
+
 
 function displayROOMInfo(roomID){
     currentRoom.innerHTML = roomID;
@@ -33,11 +34,18 @@ socket.on('active-users', ({active}) => {
 })
 
 leave.addEventListener('click', () => {
-    if(confirm("Are you leaving the chat?")){
-        window.location.href = "/";
-    } else {
-        return;
-    }
+    Swal.fire({
+        title: 'Are you leaving the chat?',
+        icon: 'warning',
+        showCancelButton: 'true',
+        confirmButtonColor: localStorage.getItem('colors') ? localStorage.getItem('colors') : '#EDAC1A',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, I leave'
+    }).then(result => {
+        if(result.isConfirmed){
+            window.location.href = "/";
+        }
+    })
 });
 
 document.querySelector('#send-message').addEventListener('submit', e => {
@@ -46,7 +54,11 @@ document.querySelector('#send-message').addEventListener('submit', e => {
         return;
     }
     if(input_msg.value.length > 34){
-        alert("Your message must not exceed to 38 characters!");
+        Swal.fire({
+            icon: "error",
+            title: "Message too long!",
+            textColor: "#f4f5f6"
+        })
         return;
     }
     socket.emit('chat', 
