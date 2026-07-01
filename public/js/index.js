@@ -8,6 +8,7 @@ let startCamBtn = document.getElementById("startCamBtn")
 let video = document.getElementById("webcam");
 let devicemedia = navigator.mediaDevices;
 
+
 from.addEventListener('submit', (e) => {
     let value = room_id.value;
     let username = name.value;
@@ -49,9 +50,7 @@ generate.addEventListener('click', e => {
     room_id.value = random;
 });
 
+console.log(localStorage.getItem("colors"))
 
-let objectEntries = Object.fromEntries(new URLSearchParams(location.search))`   `
-
-console.log(objectEntries)
-
-let roomsAvailable = document.createElement("option")
+document.querySelector("#generate").style.backgroundColor = localStorage.getItem("colors")
+document.querySelector(".joiner").style.background = localStorage.getItem("colors")
